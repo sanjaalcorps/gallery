@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.site_name }} - Home{% endblock %}
+
+{% block content %}
+<h2>Welcome to {{ config.site_name }}</h2>
+<p>{{ config.site_description }}</p>
+
+<div class="album-grid">
+{% for album in albums %}
+    <div class="album">
+        <a href="{{ album.name }}.html">
+            <img src="{{ album.thumbnail }}" alt="{{ album.name }}">
+            <span>{{ album.name }}</span>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+<div class="pagination">
+    {% if current_page > 1 %}
+        <a href="{% if current_page == 2 %}index.html{% else %}index_page{{ current_page - 1 }}.html{% endif %}" class="btn">Previous</a>
+    {% endif %}
+    <span>Page {{ current_page }} of {{ total_pages }}</span>
+    {% if current_page < total_pages %}
+        <a href="index_page{{ current_page + 1 }}.html" class="btn">Next</a>
+    {% endif %}
+</div>
+{% endblock %}
