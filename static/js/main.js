@@ -10,5 +10,3 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDateTime();
     setInterval(updateDateTime, 60000); // Update every minute
 });
-
-//

@@ -2,8 +2,8 @@ source_dir: 'C:/002 Workspaces/AI/stable-diffusion-webui/outputs/txt2img-images/
 output_dir: 'C:/002 Workspaces/AI/stable-diffusion-webui/outputs/txt2img-images/test_output/output/gallery'
 thumbnail_size: [200, 200]
 items_per_page: 12
-templates_dir: 'C:/Users/paudyals/.spyder-py3/gallery_generator/template'
-static_dir: 'C:/Users/paudyals/.spyder-py3/gallery_generator/static'
+templates_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/template'
+static_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/static'
 site_name: 'AI Generated Photography'
 site_description: 'A collection of beautiful moments generated in time by AI'
 footer_text: '© 2024 Sanjaal Corps. All rights reserved.'

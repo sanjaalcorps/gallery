@@ -81,6 +81,27 @@ main {
     text-align: center;
 }
 
+/* Tags */
+.tags {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #0056b3;
+}
+
 /* Pagination */
 .pagination {
     margin-top: 2rem;

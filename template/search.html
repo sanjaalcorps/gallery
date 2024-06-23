@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}{{ album_name }} - {{ config.site_name }}{% endblock %}
+{% block title %}Search Results for "{{ tag }}" - {{ config.site_name }}{% endblock %}
 
 {% block content %}
 <nav class="breadcrumb">
-    <a href="index.html">Home</a> &gt; {{ album_name }}
+    <a href="index.html">Home</a> &gt; Search Results for "{{ tag }}"
 </nav>
 
-<h2>{{ album_name }}</h2>
+<h2>Search Results for "{{ tag }}"</h2>
 
 <div class="gallery-grid">
 {% for image in images %}
@@ -27,11 +27,11 @@
 
 <div class="pagination">
     {% if current_page > 1 %}
-        <a href="{% if current_page == 2 %}{{ album_name }}.html{% else %}{{ album_name }}_page{{ current_page - 1 }}.html{% endif %}" class="btn">Previous</a>
+        <a href="{% if current_page == 2 %}search_{{ tag }}.html{% else %}search_{{ tag }}_page{{ current_page - 1 }}.html{% endif %}" class="btn">Previous</a>
     {% endif %}
     <span>Page {{ current_page }} of {{ total_pages }}</span>
     {% if current_page < total_pages %}
-        <a href="{{ album_name }}_page{{ current_page + 1 }}.html" class="btn">Next</a>
+        <a href="search_{{ tag }}_page{{ current_page + 1 }}.html" class="btn">Next</a>
     {% endif %}
 </div>
 {% endblock %}
