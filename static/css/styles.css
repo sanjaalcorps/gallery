@@ -1,9 +1,57 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #333;
+    --header-text: #fff;
+    --footer-bg: #333;
+    --footer-text: #fff;
+    --link-color: #007BFF;
+    --btn-bg: #333;
+    --btn-text: #fff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #333;
+    --text-color: #f4f4f4;
+    --header-bg: #1a1a1a;
+    --header-text: #fff;
+    --footer-bg: #1a1a1a;
+    --footer-text: #fff;
+    --link-color: #4da3ff;
+    --btn-bg: #4da3ff;
+    --btn-text: #fff;
+}
+
+a {
+    color: var(--link-color);
+}
+
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--link-color);
+}
+
 /* Base styles */
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
 }
@@ -20,8 +68,8 @@ h1, h2, h3 {
 
 /* Header */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem 0;
 }
 
@@ -120,8 +168,8 @@ main {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -133,8 +181,8 @@ main {
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     padding: 1rem 0;
     text-align: center;
 }
