@@ -75,10 +75,20 @@ main {
     display: block;
 }
 
-.album span, .image-size {
+.album span, .image-filename, .image-size {
     display: block;
     padding: 10px;
     text-align: center;
+}
+
+.image-filename {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.image-size {
+    font-size: 0.8em;
+    color: #888;
 }
 
 /* Tags */
@@ -103,6 +113,7 @@ main {
 /* Pagination */
 .pagination {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 

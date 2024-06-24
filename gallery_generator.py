@@ -78,6 +78,7 @@ def process_images(album_path):
             
             images.append({
                 'filename': filename,
+                'filename_no_ext': os.path.splitext(filename)[0],
                 'thumbnail': f"thumbnails/{album_name}/{filename}",
                 'full_image': f"images/{album_name}/{filename}",
                 'size': size,
@@ -133,7 +134,6 @@ def generate_index_pages(albums):
 
 def generate_search_pages(tag, images):
     template = env.get_template('search.html')
-    
     total_pages = math.ceil(len(images) / ITEMS_PER_PAGE)
     
     for page in range(1, total_pages + 1):
@@ -154,6 +154,13 @@ def generate_search_pages(tag, images):
         filename = f"search_{tag}_page{page}.html" if page > 1 else f"search_{tag}.html"
         with open(os.path.join(OUTPUT_DIR, filename), 'w') as f:
             f.write(html)
+
+def generate_json(albums):
+    with open(os.path.join(OUTPUT_DIR, "gallery.json"), 'w') as f:
+        json.dump(albums, f, indent=2)
+
+def copy_static_files():
+    shutil.copytree(STATIC_DIR, os.path.join(OUTPUT_DIR, 'static'), dirs_exist_ok=True)
 
 def generate_about_page():
     template = env.get_template('about.html')
@@ -176,14 +183,6 @@ def generate_contact_page():
     
     with open(os.path.join(OUTPUT_DIR, "contact.html"), 'w') as f:
         f.write(html)
-
-
-def generate_json(albums):
-    with open(os.path.join(OUTPUT_DIR, "gallery.json"), 'w') as f:
-        json.dump(albums, f, indent=2)
-
-def copy_static_files():
-    shutil.copytree(STATIC_DIR, os.path.join(OUTPUT_DIR, 'static'), dirs_exist_ok=True)
 
 def main():
     albums = []
@@ -219,13 +218,14 @@ def main():
                 )
     
     generate_index_pages(albums)
-    generate_about_page()
-    generate_contact_page()
     generate_json(albums)
+    copy_static_files()
+    
     for tag, images in tag_map.items():
         generate_search_pages(tag, images)
     
-    copy_static_files()
+    generate_about_page()
+    generate_contact_page()
     
     print("Gallery generation complete!")
 

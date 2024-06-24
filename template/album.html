@@ -12,9 +12,10 @@
 <div class="gallery-grid">
 {% for image in images %}
     <div class="image">
-        <a href="{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename }} ({{ image.size }})">
+        <a href="{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename_no_ext }} ({{ image.size }})">
             <img src="{{ image.thumbnail }}" alt="{{ image.filename }}">
         </a>
+        <span class="image-filename">{{ image.filename_no_ext }}</span>
         <span class="image-size">{{ image.size }}</span>
         <div class="tags">
             {% for tag in image.tags %}
