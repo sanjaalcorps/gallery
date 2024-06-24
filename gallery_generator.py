@@ -204,7 +204,8 @@ def main():
             albums.append({
                 'name': album_name,
                 'images': images,
-                'thumbnail': random.choice(images)['thumbnail'] if images else ''
+                'thumbnail': random.choice(images)['thumbnail'] if images else '',
+                'image_count': len(images)  # Add this line to include the image count
             })
             
             for image in images:

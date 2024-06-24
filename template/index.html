@@ -11,7 +11,8 @@
     <div class="album">
         <a href="{{ album.name }}.html">
             <img src="{{ base_path }}{{ album.thumbnail }}" alt="{{ album.name }}">
-            <span>{{ album.name }}</span>
+            <span class="album-name">{{ album.name }}</span>
+            <span class="image-count">({{ album.image_count }} photos)</span>
         </a>
     </div>
 {% endfor %}

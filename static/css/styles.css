@@ -167,6 +167,29 @@ main {
     margin-top: 2rem;
 }
 
+.album {
+    position: relative;
+    overflow: hidden;
+}
+
+.album-name {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.image-count {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.album:hover .image-count {
+    color: #007BFF;
+}
+
+
+
 .album, .image {
     background-color: #fff;
     border-radius: 5px;
