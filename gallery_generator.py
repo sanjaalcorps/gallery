@@ -155,6 +155,28 @@ def generate_search_pages(tag, images):
         with open(os.path.join(OUTPUT_DIR, filename), 'w') as f:
             f.write(html)
 
+def generate_about_page():
+    template = env.get_template('about.html')
+    html = template.render(
+        config=config,
+        current_date=datetime.now().strftime("%B %d, %Y"),
+        random_quote=random.choice(config['quotes'])
+    )
+    
+    with open(os.path.join(OUTPUT_DIR, "about.html"), 'w') as f:
+        f.write(html)
+
+def generate_contact_page():
+    template = env.get_template('contact.html')
+    html = template.render(
+        config=config,
+        current_date=datetime.now().strftime("%B %d, %Y"),
+        random_quote=random.choice(config['quotes'])
+    )
+    
+    with open(os.path.join(OUTPUT_DIR, "contact.html"), 'w') as f:
+        f.write(html)
+
 
 def generate_json(albums):
     with open(os.path.join(OUTPUT_DIR, "gallery.json"), 'w') as f:
@@ -197,11 +219,13 @@ def main():
                 )
     
     generate_index_pages(albums)
+    generate_about_page()
+    generate_contact_page()
     generate_json(albums)
-    copy_static_files()
-    
     for tag, images in tag_map.items():
         generate_search_pages(tag, images)
+    
+    copy_static_files()
     
     print("Gallery generation complete!")
 

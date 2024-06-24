@@ -1,6 +1,6 @@
 source_dir: 'C:/002 Workspaces/AI/stable-diffusion-webui/outputs/txt2img-images/test/'
 output_dir: 'C:/002 Workspaces/AI/stable-diffusion-webui/outputs/txt2img-images/test_output/output/gallery'
-thumbnail_size: [200, 200]
+thumbnail_size: [200, 300]
 items_per_page: 12
 templates_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/template'
 static_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/static'
@@ -15,3 +15,10 @@ navigation:
   - {name: 'Home', url: 'index.html'}
   - {name: 'About', url: 'about.html'}
   - {name: 'Contact', url: 'contact.html'}
+about_content:
+  - "At Artistic Gallery, we are passionate about the intersection of technology and creativity. We believe that AI-generated images represent a new frontier in artistic expression, allowing creators to explore uncharted territories of imagination and visual storytelling."
+  - "AI image generation is not just a tool; it's a collaborative partner in the creative process. It enables artists to break free from traditional constraints, offering endless possibilities for experimentation and innovation. By harnessing the power of machine learning algorithms, we can create stunning visuals that push the boundaries of what's possible in digital art and fashion."
+  - "Our gallery showcases how AI can be used to express complex ideas, emotions, and aesthetics in ways that were previously unimaginable. From surreal landscapes to avant-garde fashion designs, AI-generated content opens up new avenues for artistic exploration and self-expression."
+  - "We are committed to fostering a community where technology and human creativity coexist and thrive together. Through our curated collections, we aim to inspire both artists and viewers to embrace the potential of AI in art, encouraging a dialogue about the future of creativity in the digital age."
+  - "Join us on this exciting journey as we continue to push the boundaries of digital content generation, celebrating the beauty and innovation that emerges when human imagination meets artificial intelligence."
+contact_email: 'ai@sanjaal.com'

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}About - {{ config.site_name }}{% endblock %}
+
+{% block content %}
+<h2>About {{ config.site_name }}</h2>
+
+{% for paragraph in config.about_content %}
+<p>{{ paragraph }}</p>
+{% endfor %}
+{% endblock %}
