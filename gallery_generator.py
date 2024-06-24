@@ -29,6 +29,7 @@ STATIC_DIR = config['static_dir']
 
 # Ensure output directories exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(os.path.join(OUTPUT_DIR, 'search'), exist_ok=True)
 
 # Set up Jinja2 environment
 env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
@@ -103,7 +104,8 @@ def generate_album_pages(album_name, images):
             total_pages=total_pages,
             config=config,
             current_date=datetime.now().strftime("%B %d, %Y"),
-            random_quote=random.choice(config['quotes'])
+            random_quote=random.choice(config['quotes']),
+            base_path=""
         )
         
         filename = f"{album_name}_page{page}.html" if page > 1 else f"{album_name}.html"
@@ -125,7 +127,8 @@ def generate_index_pages(albums):
             total_pages=total_pages,
             config=config,
             current_date=datetime.now().strftime("%B %d, %Y"),
-            random_quote=random.choice(config['quotes'])
+            random_quote=random.choice(config['quotes']),
+            base_path=""
         )
         
         filename = f"index_page{page}.html" if page > 1 else "index.html"
@@ -135,6 +138,7 @@ def generate_index_pages(albums):
 def generate_search_pages(tag, images):
     template = env.get_template('search.html')
     total_pages = math.ceil(len(images) / ITEMS_PER_PAGE)
+    tag_filename = tag.replace(' ', '_')
     
     for page in range(1, total_pages + 1):
         start_idx = (page - 1) * ITEMS_PER_PAGE
@@ -148,11 +152,12 @@ def generate_search_pages(tag, images):
             total_pages=total_pages,
             config=config,
             current_date=datetime.now().strftime("%B %d, %Y"),
-            random_quote=random.choice(config['quotes'])
+            random_quote=random.choice(config['quotes']),
+            base_path="../"
         )
         
-        filename = f"search_{tag}_page{page}.html" if page > 1 else f"search_{tag}.html"
-        with open(os.path.join(OUTPUT_DIR, filename), 'w') as f:
+        filename = f"search_{tag_filename}_page{page}.html" if page > 1 else f"search_{tag_filename}.html"
+        with open(os.path.join(OUTPUT_DIR, 'search', filename), 'w') as f:
             f.write(html)
 
 def generate_json(albums):
@@ -167,7 +172,8 @@ def generate_about_page():
     html = template.render(
         config=config,
         current_date=datetime.now().strftime("%B %d, %Y"),
-        random_quote=random.choice(config['quotes'])
+        random_quote=random.choice(config['quotes']),
+        base_path=""
     )
     
     with open(os.path.join(OUTPUT_DIR, "about.html"), 'w') as f:
@@ -178,7 +184,8 @@ def generate_contact_page():
     html = template.render(
         config=config,
         current_date=datetime.now().strftime("%B %d, %Y"),
-        random_quote=random.choice(config['quotes'])
+        random_quote=random.choice(config['quotes']),
+        base_path=""
     )
     
     with open(os.path.join(OUTPUT_DIR, "contact.html"), 'w') as f:

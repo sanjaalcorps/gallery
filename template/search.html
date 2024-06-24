@@ -4,7 +4,7 @@
 
 {% block content %}
 <nav class="breadcrumb">
-    <a href="index.html">Home</a> &gt; Search Results for "{{ tag }}"
+    <a href="{{ base_path }}index.html">Home</a> &gt; Search Results for "{{ tag }}"
 </nav>
 
 <h2>Search Results for "{{ tag }}"</h2>
@@ -12,14 +12,14 @@
 <div class="gallery-grid">
 {% for image in images %}
     <div class="image">
-        <a href="{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename_no_ext }} ({{ image.size }})">
-            <img src="{{ image.thumbnail }}" alt="{{ image.filename }}">
+        <a href="{{ base_path }}{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename_no_ext }} ({{ image.size }})">
+            <img src="{{ base_path }}{{ image.thumbnail }}" alt="{{ image.filename }}">
         </a>
         <span class="image-filename">{{ image.filename_no_ext }}</span>
         <span class="image-size">{{ image.size }}</span>
         <div class="tags">
             {% for tag in image.tags %}
-                <a href="search_{{ tag }}.html" class="tag">{{ tag }}</a>
+                <a href="search_{{ tag.replace(' ', '_') }}.html" class="tag">{{ tag }}</a>
             {% endfor %}
         </div>
     </div>
@@ -28,11 +28,11 @@
 
 <div class="pagination">
     {% if current_page > 1 %}
-        <a href="{% if current_page == 2 %}search_{{ tag }}.html{% else %}search_{{ tag }}_page{{ current_page - 1 }}.html{% endif %}" class="btn">Previous</a>
+        <a href="{% if current_page == 2 %}search_{{ tag.replace(' ', '_') }}.html{% else %}search_{{ tag.replace(' ', '_') }}_page{{ current_page - 1 }}.html{% endif %}" class="btn">Previous</a>
     {% endif %}
     <span>Page {{ current_page }} of {{ total_pages }}</span>
     {% if current_page < total_pages %}
-        <a href="search_{{ tag }}_page{{ current_page + 1 }}.html" class="btn">Next</a>
+        <a href="search_{{ tag.replace(' ', '_') }}_page{{ current_page + 1 }}.html" class="btn">Next</a>
     {% endif %}
 </div>
 {% endblock %}

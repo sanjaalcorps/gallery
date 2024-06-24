@@ -10,7 +10,7 @@
 {% for album in albums %}
     <div class="album">
         <a href="{{ album.name }}.html">
-            <img src="{{ album.thumbnail }}" alt="{{ album.name }}">
+            <img src="{{ base_path }}{{ album.thumbnail }}" alt="{{ album.name }}">
             <span>{{ album.name }}</span>
         </a>
     </div>

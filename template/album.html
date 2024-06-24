@@ -4,7 +4,7 @@
 
 {% block content %}
 <nav class="breadcrumb">
-    <a href="index.html">Home</a> &gt; {{ album_name }}
+    <a href="{{ base_path }}index.html">Home</a> &gt; {{ album_name }}
 </nav>
 
 <h2>{{ album_name }}</h2>
@@ -12,14 +12,14 @@
 <div class="gallery-grid">
 {% for image in images %}
     <div class="image">
-        <a href="{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename_no_ext }} ({{ image.size }})">
-            <img src="{{ image.thumbnail }}" alt="{{ image.filename }}">
+        <a href="{{ base_path }}{{ image.full_image }}" data-lightbox="gallery" data-title="{{ image.filename_no_ext }} ({{ image.size }})">
+            <img src="{{ base_path }}{{ image.thumbnail }}" alt="{{ image.filename }}">
         </a>
         <span class="image-filename">{{ image.filename_no_ext }}</span>
         <span class="image-size">{{ image.size }}</span>
         <div class="tags">
             {% for tag in image.tags %}
-                <a href="search_{{ tag }}.html" class="tag">{{ tag }}</a>
+                <a href="{{ base_path }}search/search_{{ tag.replace(' ', '_') }}.html" class="tag">{{ tag }}</a>
             {% endfor %}
         </div>
     </div>
