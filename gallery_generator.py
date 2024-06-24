@@ -167,7 +167,6 @@ def generate_json(albums):
 def copy_static_files():
     shutil.copytree(STATIC_DIR, os.path.join(OUTPUT_DIR, 'static'), dirs_exist_ok=True)
 
-
 def generate_about_page():
     template = env.get_template('about.html')
     html = template.render(

@@ -6,6 +6,7 @@ templates_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/template'
 static_dir: 'C:/002 Workspaces/Python/GalleryGeneratorWS/static'
 site_name: 'AI Generated Photography'
 site_description: 'A collection of beautiful moments generated in time by AI'
+site_url: 'https://ai.sanjaal.com'
 footer_text: '© 2024 Sanjaal Corps. All rights reserved.'
 quotes:
   - "Photography is the story I fail to put into words. - Destin Sparks"
